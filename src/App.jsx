@@ -1,6 +1,14 @@
+import Age from './Age';
 import Hello from './Hello';
 import Hobby from './Hobby';
 import TitleLi from './TitleLi';
+
+const hobbies = [
+    { emoji: '🏊', title: 'Swim' },
+    { emoji: '🏃', title: 'Run' },
+    { emoji: '🎮', title: 'Game' },
+    { title: 'Sleep' },
+];
 
 export default function App() {
     const name = 'ENTER YOUR NAME';
@@ -10,12 +18,16 @@ export default function App() {
             <div>
                 <ol>
                     <TitleLi title="Name">{name}</TitleLi>
-                    <TitleLi title="Age">18</TitleLi>
+                    <Age value={1} />
                     <TitleLi title="Hobbies">
                         <ol>
-                            <Hobby title="Swim" emoji="🏊" />
-                            <Hobby title="Run" emoji="🏃" />
-                            <Hobby title="Game" emoji="🎮" />
+                            {hobbies
+                                .filter(function (hobby) {
+                                    return hobby.emoji;
+                                })
+                                .map(function (hobby) {
+                                    return <Hobby title={hobby.title} emoji={hobby.emoji} />;
+                                })}
                         </ol>
                     </TitleLi>
                 </ol>
