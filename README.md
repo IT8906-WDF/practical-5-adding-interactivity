@@ -1,2 +1,2 @@
-# react-babel
-A template with React and Babel configured
+# Practical 5
+Adding Interactivity
